@@ -1,0 +1,19 @@
+<mat-card class="card-one mat-elevation-z3">
+  <div
+    class="flex"
+    *ngIf="!exibir"
+    (click)="exibirCartao()"
+    matTooltip="Clique aqui para saber mais..."
+  >
+    <img class="img" src="assets/img/matheus-lima.png" alt="matheus-lima" />
+    <mat-card-title class="title">Matheus Lima</mat-card-title>
+  </div>
+  <div
+    *ngIf="exibir"
+    class="flex"
+    (click)="exibirCartao()"
+    matTooltip="Clique aqui para saber mais..."
+  >
+    <mat-card-title class="title">Parte de trás do cartão!</mat-card-title>
+  </div>
+</mat-card>

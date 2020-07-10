@@ -1,0 +1,28 @@
+.card-one {
+  max-width: 30%;
+  cursor: pointer;
+  border: 1px solid black;
+  padding-top: 25px;
+}
+
+.img {
+  max-width: 30%;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+}
+
+.icons {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+}
+
+.title {
+  padding-left: 25px;
+  font-size: 24px;
+}

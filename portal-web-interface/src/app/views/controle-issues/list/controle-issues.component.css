@@ -1,0 +1,28 @@
+
+table {
+    margin-top: 20px;
+}
+
+.dados {
+    width: 100%;
+}
+
+span {
+    cursor: pointer;
+}
+
+.tot {
+    padding-top: 20px;
+    font-size: 26px;
+    color: green;
+    display: flex;
+}
+
+.icone {
+    font-size: 36px;
+    cursor: text;
+}
+
+.paragrafo {
+    padding-left: 10px;
+}

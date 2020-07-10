@@ -1,0 +1,34 @@
+<mat-sidenav-container class="container">
+    <mat-sidenav class="sidenav" mode="side" opened fixedInViewport fixedTopGap="64">
+        <mat-nav-list class="nav-list">
+            <a mat-list-item routerLink="/">
+                <i class="material-icons">
+                    home
+                </i>
+                Inicio
+            </a>            
+            <a mat-list-item routerLink="/view/lancamento-issues">
+                <i class="material-icons">
+                    history
+                </i>
+                Lançamento Horas
+            </a> 
+            <a mat-list-item routerLink="/view/integrantes">
+                <i class="material-icons">
+                    group
+                </i>
+                Integrantes
+            </a>
+            <a mat-list-item>
+                <i class="material-icons">
+                    live_help
+                </i>
+                Dúvidas e Suportes
+            </a> 
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="content">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,51 @@
+<mat-card-title class="title">
+    Lançamento de Horas
+</mat-card-title>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 dados">
+    <!-- Código Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Código </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <!-- Numero da Issue Column -->
+  <ng-container matColumnDef="numIssue">
+    <th mat-header-cell *matHeaderCellDef> Número da Issue </th>
+    <td mat-cell *matCellDef="let element"> {{element.numIssue}} </td>
+  </ng-container>
+
+  <!-- Descrição Column -->
+  <ng-container matColumnDef="descricao">
+    <th mat-header-cell *matHeaderCellDef> Descrição </th>
+    <td mat-cell *matCellDef="let element"> {{element.descricao}} </td>
+  </ng-container>
+
+  <!-- Horas trabalhadas Column -->
+  <ng-container matColumnDef="horastrabalhas">
+    <th mat-header-cell *matHeaderCellDef> Horas Trabalhadas </th>
+    <td mat-cell *matCellDef="let element"> {{element.horastrabalhas}} </td>
+  </ng-container> 
+  
+  <!-- Data do Registro Column -->
+  <ng-container matColumnDef="data">
+    <th mat-header-cell *matHeaderCellDef> Data do Registro </th>
+    <td mat-cell *matCellDef="let element"> {{element.data | date:'shortDate'}} </td>
+  </ng-container>
+
+  <!-- adicionar -->
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef>
+      <span (click)="adicionar()" class="material-icons" matTooltip="Adicionar um novo Registro">library_add</span>
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <span (click)="editar(element)" class="material-icons" matTooltip="Editar Registro">create</span>
+      <span *ngIf="!element.locked" (click)="liberarTarefa(element)" class="material-icons" matTooltip="Liberar Registro">lock</span>
+      <span *ngIf="element.locked" (click)="concluirTarefa(element)" class="material-icons" matTooltip="Bloquear Registro">lock_open</span>
+      <span (click)="remover(element)" class="material-icons" matTooltip="Remover Registro">delete</span>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+</table>

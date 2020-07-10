@@ -1,0 +1,80 @@
+  <form class="margin-tab" [formGroup]="formGroup">
+      <mat-tab-group color="primary" backgroundColor="primary" class="tab-group-form">
+        <mat-tab data-cy="panel">
+          <ng-template mat-tab-label data-cy="panel-info-basica">
+            <mat-icon>assignment</mat-icon>
+            Informações Básicas
+          </ng-template>
+          <div class="form-group flex-33 init">
+            <mat-form-field class="form">
+              <input matInput placeholder="Número da Issue" formControlName="numIssue" required data-cy="numIssue"
+                maxlength="60" #numIssue>
+              <mat-error *ngIf="formGroup.get('numIssue').hasError('required')">Campo
+                Obrigatório
+              </mat-error>
+            </mat-form-field>
+    
+            <mat-form-field class="form">
+              <input matInput placeholder="Descrição" formControlName="descricao" required data-cy="descricao"
+                maxlength="60" #descricao>
+              <mat-error *ngIf="formGroup.get('descricao').hasError('required')">Campo
+                Obrigatório
+              </mat-error>
+            </mat-form-field>
+    
+            <mat-form-field class="form">
+              <input matInput [matDatepicker]="picker" placeholder="Data do Registro" formControlName="data" data-cy="data">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <mat-error *ngIf="formGroup.get('data').hasError('required')">Campo
+                Obrigatório
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <ul>
+              <li class="list">Lista de Horários</li>
+              <span (click)="addHorarios(); $event.stopPropagation()" class="material-icons icon"
+              matTooltip="Adicionar Horários">library_add</span>
+              <hr class="linha"/>
+            </ul>
+          </div>
+          <div [ngClass]="{ hidden: horarios.length === 0}">
+          <div formArrayName="horarios" 
+            *ngFor="let horario of horarios.controls; let i = index;">
+            <div class="flex">
+              <div class="form-group flex-33" [formGroupName]="i">
+                <mat-form-field class="form">
+                  <label for="horaInicio">Horário de Início</label>
+                  <input type="time" matInput formControlName="horaInicio" data-cy="horaInicio" maxlength="60" #horaInicio>
+                </mat-form-field>
+        
+                <mat-form-field class="form">
+                  <label for="horaFim">Horário de Término</label>
+                  <input (blur)="atualizaHora(horario)" type="time" matInput formControlName="horaFim" data-cy="horaFim"
+                    maxlength="60" #horaFim>
+                </mat-form-field>
+        
+                <mat-form-field class="form">
+                  <label for="horastrabalhas">Horas Trabalhadas</label>
+                  <input type="time" matInput formControlName="horastrabalhas"
+                    data-cy="horastrabalhas" maxlength="60" #horastrabalhas>
+                </mat-form-field>
+
+                <span (click)="excluirHorario(i)" class="material-icons del">delete</span>
+            </div>
+    
+            </div>
+          </div>
+        </div>
+        </mat-tab>
+      </mat-tab-group>
+      <div>
+          <button class="btn" mat-raised-button (click)=cancelar()>
+              CANCELAR
+          </button>
+          <button class="btn" mat-raised-button (click)=salvar() color="primary">
+              SALVAR
+          </button>
+      </div>
+  </form>
