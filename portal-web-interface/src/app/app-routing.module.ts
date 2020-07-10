@@ -1,9 +1,9 @@
-import { ControleIssuesFormComponent } from './views/controle-issues/form/controle-issues-form.component';
-import { ControleIssuesComponent } from './views/controle-issues/list/controle-issues.component';
-import { HomeComponent } from './views/home/home.component';
+import { ControleIssuesFormComponent } from './pages/controle-issues/form/controle-issues-form.component';
+import { ControleIssuesComponent } from './pages/controle-issues/list/controle-issues.component';
+import { HomeComponent } from './pages/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { IntegrantesComponent } from './views/integrantes/integrantes.component';
+import { IntegrantesComponent } from './pages/integrantes/integrantes.component';
 
 const routes: Routes = [
   {

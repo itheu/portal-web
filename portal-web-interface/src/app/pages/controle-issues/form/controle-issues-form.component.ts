@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { UtilsService } from 'src/app/services/utils.service';
 import { ControleIssuesModel } from 'src/app/models/controle-issues.models';
 import { HeaderService } from 'src/app/services/header.service';
+import {CalendarModule} from 'primeng/calendar';
 
 @Component({
   selector: 'app-controle-issues-form',
